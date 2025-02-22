@@ -83,6 +83,27 @@ class FastLog {
         : convertedMessage;
   }
 
+  static String _getCallerInfo() {
+    try {
+      final stackLines = StackTrace.current.toString().split("\n");
+
+      // Find the first non-FastLog stack trace line
+      for (var line in stackLines) {
+        if (!line.contains('FastLog')) {
+          final match = RegExp(r'(\S+\.dart):(\d+):(\d+)').firstMatch(line);
+          if (match != null) {
+            final file = match.group(1)?.split('/').last ?? "unknown";
+            final lineNumber = match.group(2) ?? "0";
+            return "$file:$lineNumber";
+          }
+        }
+      }
+    } catch (e) {
+      return "unknown";
+    }
+    return "unknown";
+  }
+
   static Future<void> trace(dynamic message, {String tag = ""}) async =>
       await _log("TRACE", message, tag);
   static Future<void> debug(dynamic message, {String tag = ""}) async =>
@@ -98,17 +119,17 @@ class FastLog {
 
   static Future<void> _log(String level, dynamic message, String tag) async {
     final logMessage = generateLog(
-      _limitMessage(message),
-      level,
-      _limitTag(tag, 7),
-      _justDebug,
-      _showTime,
-      _useEmoji,
-      _isColored,
-      _logLevel,
-      _levels,
-      _emojis,
-    );
+        _limitMessage(message),
+        level,
+        _limitTag(tag, 7),
+        _justDebug,
+        _showTime,
+        _useEmoji,
+        _isColored,
+        _logLevel,
+        _levels,
+        _emojis,
+        _getCallerInfo());
 
     _logController.add(logMessage);
     await Future.delayed(Duration.zero, () => print(logMessage));

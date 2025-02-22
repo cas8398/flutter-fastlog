@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:core';
 
-String returnLog(String level, String tag, bool isColored, String emoji,
-    String? time, String message) {
+String returnLog(String level, String tag, String callerInfo, bool isColored,
+    String emoji, String? time, String message) {
   String formattedTag = tag.isNotEmpty ? tag : level;
 
   // ANSI color codes for log levels
@@ -24,9 +24,6 @@ String returnLog(String level, String tag, bool isColored, String emoji,
     "ERROR": "\x1B[31m", // Red
     "FATAL": "\x1B[35m", // Magenta
   };
-
-  // Get caller information
-  final callerInfo = _getCallerInfo();
 
   // Fixed column widths
   const int levelWidth = 6; // Fixed width for log levels
@@ -87,20 +84,4 @@ List<String> _wrapText(String text, int maxWidth) {
   }
   lines.add(text); // Add remaining text
   return lines;
-}
-
-// Function to extract caller info
-String _getCallerInfo() {
-  try {
-    final trace = StackTrace.current.toString().split("\n")[2]; // Get caller
-    final match = RegExp(r'(\S+\.dart):(\d+):(\d+)').firstMatch(trace);
-    if (match != null) {
-      final file = match.group(1)?.split('/').last ?? "unknown";
-      final line = match.group(2) ?? "0";
-      return "$file:$line";
-    }
-  } catch (e) {
-    return "unknown";
-  }
-  return "unknown";
 }

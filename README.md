@@ -65,7 +65,7 @@ FastLog.debug("This is Debug  log with Custom tag : DB", tag: "DB") // custom ta
 Here’s a simple example of logging with `flutter_fastlog`:
 
 ```dart
-import 'package:flutter_fastlog/fastlog.dart';
+import 'package:flutter_fastlog/flutter_fastlog.dart';
 
 void main() {
 // Configure logging

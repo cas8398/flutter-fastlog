@@ -1,3 +1,7 @@
+## 0.1.6
+
+- Minor update of `flutter_fastlog`, fix call FastLog from.
+
 ## 0.1.5
 
 - Minor update of `flutter_fastlog`, remove intl package

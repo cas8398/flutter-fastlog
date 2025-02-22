@@ -13,6 +13,7 @@ String generateLog(
   String logLevel,
   List<String> levels,
   Map<String, String> emojis,
+  String callerInfo,
 ) {
   if (justDebug && !_isDebugMode()) return "";
   if (levels.indexOf(level) < levels.indexOf(logLevel)) return "";
@@ -23,6 +24,7 @@ String generateLog(
   final formattedLog = returnLog(
     level,
     tag,
+    callerInfo,
     isColored,
     emoji,
     timestamp,
