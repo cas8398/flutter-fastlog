@@ -16,7 +16,7 @@ To use `flutter_fastlog` in your Dart or Flutter project, add the following to y
 
 ```yaml
 dependencies:
-flutter_fastlog: ^0.1.3
+flutter_fastlog: ^0.1.4
 ```
 
 Then run:
@@ -58,7 +58,7 @@ FastLog.debug("This is Debug  log with Custom tag : DB", tag: "DB") // custom ta
 
 ### Output
 
-![Output Fastlog](https://raw.githubusercontent.com/cas8398/flutter-fastlog/main/screenshot/fastlog-sample.png)
+![Output Fastlog](https://raw.githubusercontent.com/cas8398/flutter-fastlog/refs/heads/master/screenshot/fastlog-sample.png)
 
 ### Example
 
