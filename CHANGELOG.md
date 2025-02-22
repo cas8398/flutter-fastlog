@@ -1,3 +1,3 @@
-## 1.0.0
+## 0.1.3
 
-- Initial version.
+- Initial release of `fastlog`, a super lightweight and high-performance logging package for Dart and Flutter.
