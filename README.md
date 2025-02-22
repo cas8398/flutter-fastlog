@@ -1,7 +1,7 @@
 # Flutter FastLog
 
 A super lightweight and high-performance logging package for Dart and Flutter.  
-Supports customizable log levels, colors, timestamps, and emojis.
+Supports customizable log levels, colors, timestamps, tag, and emojis.
 
 ## Features
 
@@ -37,7 +37,7 @@ justDebug: true, // Only show debug logs
 isColored: true, // Enable colored output
 showTime: true, // Show timestamp in logs
 useEmoji: true, // Use emojis in logs
-logLevel: "INFO", // Set the default log level
+logLevel: "TRACE", // Set the default log level
 messageLimit: 200, // Limit log message length
 );
 ```
@@ -53,11 +53,16 @@ FastLog.info("This is an info message");
 FastLog.warn("This is a warning message");
 FastLog.error("This is an error message");
 FastLog.fatal("This is a fatal message");
+FastLog.debug("This is Debug  log with Custom tag : DB", tag: "DB") // custom tag
 ```
+
+### Output
+
+![Output Fastlog](https://raw.githubusercontent.com/cas8398/flutter-fastlog/main/screenshot/fastlog-sample.png)
 
 ### Example
 
-Here’s a simple example of logging with \`fastlog\`:
+Here’s a simple example of logging with `flutter_fastlog`:
 
 ```dart
 import 'package:flutter_fastlog/fastlog.dart';
@@ -77,6 +82,7 @@ messageLimit: 100,
 FastLog.debug("This is a debug message");
 FastLog.info("This is an info message");
 FastLog.error("This is an error message");
+FastLog.debug("This is Debug  log with Custom tag : DB", tag: "DB") // custom tag
 }
 ```
 

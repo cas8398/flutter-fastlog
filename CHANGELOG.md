@@ -1,3 +1,3 @@
-## 0.1.3
+## 0.1.4
 
-- Initial release of `flutter_fastlog`, a super lightweight and high-performance logging package for Dart and Flutter.
+- Minor update of `flutter_fastlog`, adding custom tag and async

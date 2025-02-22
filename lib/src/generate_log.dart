@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart'; // Import this to use kDebugMode
 String generateLog(
   String message,
   String level,
+  String tag,
   bool justDebug,
   bool showTime,
   bool useEmoji,
@@ -22,6 +23,7 @@ String generateLog(
 
   final formattedLog = returnLog(
     level,
+    tag,
     isColored,
     emoji,
     timestamp,

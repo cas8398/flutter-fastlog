@@ -7,8 +7,8 @@ void main() {
     FastLog.config(
       justDebug: false,
       isColored: true,
-      showTime: false,
-      messageLimit: 300,
+      showTime: true,
+      messageLimit: 100,
       logLevel: "TRACE",
       customEmojis: {
         "WARN": "❗",
@@ -18,15 +18,33 @@ void main() {
   });
 
   test("FastLog should log messages at correct levels", () {
-    expect(() => FastLog.trace("TRACE log"), returnsNormally);
-    expect(() => FastLog.debug("DEBUG log"), returnsNormally);
-    expect(() => FastLog.info("INFO log"), returnsNormally);
-    expect(() => FastLog.warn("WARN log"), returnsNormally);
-    expect(() => FastLog.error("ERROR log"), returnsNormally);
-    expect(() => FastLog.fatal("FATAL log"), returnsNormally);
+    expect(
+        () => FastLog.trace(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum tempor urna. Sed vel eros pretium, pulvinar turpis quis, vestibulum lectus. Mauris id vehicula elit. Integer vehicula, nisl sit amet volutpat bibendum, urna est euismod sapien, ac luctus justo urna vitae velit. Etiam varius lorem vel varius blandit. Phasellus nibh ex, pharetra ac neque id, eleifend facilisis mi. Nulla tincidunt quis eros vitae semper. Phasellus ipsum ipsum, ultricies vel augue at, varius efficitur ante. In commodo ex non neque commodo, quis viverra arcu aliquam."),
+        returnsNormally);
+    expect(
+        () => FastLog.debug(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum tempor urna. Sed vel eros pretium, pulvinar turpis quis, vestibulum lectus. Mauris id vehicula elit. Integer vehicula, nisl sit amet volutpat bibendum, urna est euismod sapien, ac luctus justo urna vitae velit. Etiam varius lorem vel varius blandit. Phasellus nibh ex, pharetra ac neque id, eleifend facilisis mi. Nulla tincidunt quis eros vitae semper. Phasellus ipsum ipsum, ultricies vel augue at, varius efficitur ante. In commodo ex non neque commodo, quis viverra arcu aliquam."),
+        returnsNormally);
     expect(
         () => FastLog.info(
-            "FastLog should not log lower levels than config FastLog should not log lower levels than config FastLog should not log lower levels than config FastLog should not log lower levels than config"),
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum tempor urna. Sed vel eros pretium, pulvinar turpis quis, vestibulum lectus. Mauris id vehicula elit. Integer vehicula, nisl sit amet volutpat bibendum, urna est euismod sapien, ac luctus justo urna vitae velit. Etiam varius lorem vel varius blandit. Phasellus nibh ex, pharetra ac neque id, eleifend facilisis mi. Nulla tincidunt quis eros vitae semper. Phasellus ipsum ipsum, ultricies vel augue at, varius efficitur ante. In commodo ex non neque commodo, quis viverra arcu aliquam."),
+        returnsNormally);
+    expect(
+        () => FastLog.warn(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum tempor urna. Sed vel eros pretium, pulvinar turpis quis, vestibulum lectus. Mauris id vehicula elit. Integer vehicula, nisl sit amet volutpat bibendum, urna est euismod sapien, ac luctus justo urna vitae velit. Etiam varius lorem vel varius blandit. Phasellus nibh ex, pharetra ac neque id, eleifend facilisis mi. Nulla tincidunt quis eros vitae semper. Phasellus ipsum ipsum, ultricies vel augue at, varius efficitur ante. In commodo ex non neque commodo, quis viverra arcu aliquam."),
+        returnsNormally);
+    expect(
+        () => FastLog.error(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum tempor urna. Sed vel eros pretium, pulvinar turpis quis, vestibulum lectus. Mauris id vehicula elit. Integer vehicula, nisl sit amet volutpat bibendum, urna est euismod sapien, ac luctus justo urna vitae velit. Etiam varius lorem vel varius blandit. Phasellus nibh ex, pharetra ac neque id, eleifend facilisis mi. Nulla tincidunt quis eros vitae semper. Phasellus ipsum ipsum, ultricies vel augue at, varius efficitur ante. In commodo ex non neque commodo, quis viverra arcu aliquam."),
+        returnsNormally);
+    expect(
+        () => FastLog.fatal(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum tempor urna. Sed vel eros pretium, pulvinar turpis quis, vestibulum lectus. Mauris id vehicula elit. Integer vehicula, nisl sit amet volutpat bibendum, urna est euismod sapien, ac luctus justo urna vitae velit. Etiam varius lorem vel varius blandit. Phasellus nibh ex, pharetra ac neque id, eleifend facilisis mi. Nulla tincidunt quis eros vitae semper. Phasellus ipsum ipsum, ultricies vel augue at, varius efficitur ante. In commodo ex non neque commodo, quis viverra arcu aliquam."),
+        returnsNormally);
+    expect(
+        () =>
+            FastLog.debug("This is Debug  log with Custom tag : DB", tag: "DB"),
         returnsNormally);
 
     final sampleJson = {
@@ -59,6 +77,5 @@ void main() {
         () => FastLog.info(
             "This should NOT be logged This should NOT be logged "),
         returnsNormally);
-    expect(() => FastLog.debug("This should NOT be logged"), returnsNormally);
   });
 }

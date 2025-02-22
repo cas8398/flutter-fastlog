@@ -1,15 +1,17 @@
 import 'dart:convert';
 import 'dart:core';
 
-String returnLog(
-    String level, bool isColored, String emoji, String? time, String message) {
+String returnLog(String level, String tag, bool isColored, String emoji,
+    String? time, String message) {
+  String formattedTag = tag.isNotEmpty ? tag : level;
+
   // ANSI color codes for log levels
   final Map<String, String> colors = {
     "TRACE": "\x1B[46m\x1B[30m", // Cyan BG, Black text
-    "DEBUG": "\x1B[44m\x1B[37m", // Blue BG, White text
-    "INFO": "\x1B[42m\x1B[37m", // Green BG, White text (improved contrast)
+    "DEBUG": "\x1B[44m\x1B[30m", // Blue BG, Black text
+    "INFO": "\x1B[42m\x1B[30m", // Green BG, Black text
     "WARN": "\x1B[43m\x1B[30m", // Yellow BG, Black text
-    "ERROR": "\x1B[41m\x1B[37m", // Red BG, White text
+    "ERROR": "\x1B[41m\x1B[30m", // Red BG, Black text
     "FATAL": "\x1B[45m\x1B[30m", // Magenta BG, Black text (better readability)
     "RESET": "\x1B[0m",
   };
@@ -32,7 +34,7 @@ String returnLog(
   const int tableWidth = 80; // Fixed total table width
 
   // Calculate dynamic spacing
-  final String paddedLevel = level.padRight(levelWidth);
+  final String paddedLevel = formattedTag.padRight(levelWidth);
   final int usedWidth = levelWidth + timeWidth + 6; // Extra padding
   final int callerStartPos =
       tableWidth - callerInfo.length - 4; // Space for brackets
