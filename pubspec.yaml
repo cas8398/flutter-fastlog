@@ -1,6 +1,6 @@
 name: flutter_fastlog
 description: A super lightweight and high-performance logging, Supports customizable log levels, colors, timestamps, tag, and emojis.
-version: 0.1.4
+version: 0.1.5
 repository: https://github.com/cas8398/flutter-fastlog
 homepage: https://github.com/cas8398/flutter-fastlog
 issue_tracker: https://github.com/cas8398/flutter-fastlog/issues
@@ -12,7 +12,6 @@ dependencies:
   flutter:
     sdk: flutter
   meta: ^1.10.0
-  intl: ^0.20.2
 
 dev_dependencies:
   lints: ^5.0.0

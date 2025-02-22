@@ -1,5 +1,4 @@
 import 'return_log.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter/foundation.dart'; // Import this to use kDebugMode
 
 /// Generates log structure before formatting
@@ -43,5 +42,10 @@ bool _isDebugMode() {
 
 /// Format date
 String _formattedTime() {
-  return DateFormat('yyyy/MM/dd - HH:mm:ss').format(DateTime.now());
+  final now = DateTime.now();
+
+  String twoDigits(int n) => n.toString().padLeft(2, '0');
+
+  return "${now.year}/${twoDigits(now.month)}/${twoDigits(now.day)} - "
+      "${twoDigits(now.hour)}:${twoDigits(now.minute)}:${twoDigits(now.second)}";
 }

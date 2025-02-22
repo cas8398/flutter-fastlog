@@ -16,7 +16,7 @@ To use `flutter_fastlog` in your Dart or Flutter project, add the following to y
 
 ```yaml
 dependencies:
-flutter_fastlog: ^0.1.4
+flutter_fastlog: ^0.1.5
 ```
 
 Then run:
@@ -29,7 +29,7 @@ flutter pub get
 
 ### Configuration
 
-You can configure the logging behavior using the \`FastLog.config()\` method:
+You can configure the logging behavior using the `FastLog.config()` method:
 
 ```dart
 FastLog.config(
