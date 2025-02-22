@@ -12,18 +12,18 @@ Supports customizable log levels, colors, timestamps, and emojis.
 
 ## Installation
 
-To use \`fastlog\` in your Dart or Flutter project, add the following to your \`pubspec.yaml\` file:
+To use `fastlog` in your Dart or Flutter project, add the following to your `pubspec.yaml` file:
 
-\`\`\`yaml
+```yaml
 dependencies:
 fastlog: ^0.1.3
-\`\`\`
+```
 
 Then run:
 
-\`\`\`bash
+```bash
 flutter pub get
-\`\`\`
+```
 
 ## Usage
 
@@ -31,7 +31,7 @@ flutter pub get
 
 You can configure the logging behavior using the \`FastLog.config()\` method:
 
-\`\`\`dart
+```dart
 FastLog.config(
 justDebug: true, // Only show debug logs
 isColored: true, // Enable colored output
@@ -40,26 +40,26 @@ useEmoji: true, // Use emojis in logs
 logLevel: "INFO", // Set the default log level
 messageLimit: 200, // Limit log message length
 );
-\`\`\`
+```
 
 ### Log Levels
 
 You can log messages at different levels:
 
-\`\`\`dart
+```dart
 FastLog.trace("This is a trace message");
 FastLog.debug("This is a debug message");
 FastLog.info("This is an info message");
 FastLog.warn("This is a warning message");
 FastLog.error("This is an error message");
 FastLog.fatal("This is a fatal message");
-\`\`\`
+```
 
 ### Example
 
 Here’s a simple example of logging with \`fastlog\`:
 
-\`\`\`dart
+```dart
 import 'package:fastlog/fastlog.dart';
 
 void main() {
@@ -78,7 +78,7 @@ FastLog.debug("This is a debug message");
 FastLog.info("This is an info message");
 FastLog.error("This is an error message");
 }
-\`\`\`
+```
 
 ## Contribution
 
@@ -86,4 +86,4 @@ Contributions are welcome! If you have suggestions or improvements, feel free to
 
 ## License
 
-This package is open source and available under the [MIT License](LICENSE).
+This package is open source and available under the [MIT License](https://github.com/cas8398/flutter-fastlog/blob/master/LICENSE).
