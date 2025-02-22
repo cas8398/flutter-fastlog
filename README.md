@@ -1,4 +1,4 @@
-# FastLog
+# Flutter FastLog
 
 A super lightweight and high-performance logging package for Dart and Flutter.  
 Supports customizable log levels, colors, timestamps, and emojis.
@@ -12,11 +12,11 @@ Supports customizable log levels, colors, timestamps, and emojis.
 
 ## Installation
 
-To use `fastlog` in your Dart or Flutter project, add the following to your `pubspec.yaml` file:
+To use `flutter_fastlog` in your Dart or Flutter project, add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-fastlog: ^0.1.3
+flutter_fastlog: ^0.1.3
 ```
 
 Then run:
@@ -60,7 +60,7 @@ FastLog.fatal("This is a fatal message");
 Here’s a simple example of logging with \`fastlog\`:
 
 ```dart
-import 'package:fastlog/fastlog.dart';
+import 'package:flutter_fastlog/fastlog.dart';
 
 void main() {
 // Configure logging

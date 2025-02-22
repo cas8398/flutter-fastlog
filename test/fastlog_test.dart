@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:fastlog/fastlog.dart';
+import 'package:flutter_fastlog/flutter_fastlog.dart';
 
 void main() {
   setUp(() {

@@ -1,4 +1,4 @@
-import 'package:fastlog/fastlog.dart';
+import 'package:flutter_fastlog/flutter_fastlog.dart';
 
 void main() {
   // Configure logging once at startup
