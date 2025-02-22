@@ -46,9 +46,7 @@ String returnLog(
   // Apply color to message (except INFO)
   final msgColor = isColored && level != "INFO" ? (msgColors[level] ?? "") : "";
 
-  // Check if message is valid JSON
-  bool isValidJson = _isJson(message);
-  String outputMessage = isValidJson ? _prettyJson(message) : message;
+  String valueMessage = _tryDecodeJson(message);
 
   // Max separator length
   const int maxSeparatorLength = tableWidth;
@@ -56,35 +54,23 @@ String returnLog(
 
   // Wrap long message properly
   final List<String> wrappedMessage =
-      _wrapText("$msgColor$outputMessage${colors["RESET"]}", tableWidth - 4);
+      _wrapText(valueMessage, tableWidth - 4); // Normal wrap for non-JSON
 
   return """
   ┌$separator
   │ $logHeader
   ├$separator
-${wrappedMessage.map((line) => "  │ $line").join("\n")}
+${wrappedMessage.map((line) => "  │ $msgColor$line${colors["RESET"]}").join("\n")}
   └$separator
   """;
 }
 
 // Function to check if a string is valid JSON
-bool _isJson(String str) {
+String _tryDecodeJson(String messages) {
   try {
-    jsonDecode(str);
-    return true;
+    return jsonDecode(messages);
   } catch (e) {
-    return false;
-  }
-}
-
-// Function to pretty-print JSON string with adjusted padding
-String _prettyJson(String jsonString) {
-  try {
-    var decodedJson = jsonDecode(jsonString);
-    // Using JsonEncoder.withIndent to pretty-print with indent of 2 spaces
-    return JsonEncoder.withIndent("  ").convert(decodedJson);
-  } catch (e) {
-    return jsonString; // If not valid JSON, return original string
+    return messages;
   }
 }
 
