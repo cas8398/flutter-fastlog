@@ -1,3 +1,7 @@
+## 0.1.77
+
+- Minor update of `flutter_fastlog`, Add OutputStyle and showCaller
+
 ## 0.1.6
 
 - Minor update of `flutter_fastlog`, fix call FastLog from.

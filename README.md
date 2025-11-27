@@ -3,6 +3,12 @@
 A super lightweight and high-performance logging package for Dart and Flutter.  
 Supports customizable log levels, colors, timestamps, tag, and emojis.
 
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+![Pub Version](https://img.shields.io/pub/v/flutter_fastlog?color=blue&style=for-the-badge)
+![License](https://img.shields.io/github/license/cas8398/flutter-fastlog?style=for-the-badge)
+[![Tests](https://github.com/cas8398/flutter-fastlog/actions/workflows/test.yml/badge.svg)](https://github.com/cas8398/flutter-fastlog/actions)
+[![Pub Points](https://img.shields.io/pub/points/flutter_fastlog.svg)](https://pub.dev/packages/flutter_fastlog/score)
+
 ## Features
 
 - **Lightweight**: Optimized for minimal resource usage.
@@ -16,7 +22,7 @@ To use `flutter_fastlog` in your Dart or Flutter project, add the following to y
 
 ```yaml
 dependencies:
-flutter_fastlog: ^0.1.6
+flutter_fastlog: ^0.1.7
 ```
 
 Then run:
@@ -33,12 +39,23 @@ You can configure the logging behavior using the `FastLog.config()` method:
 
 ```dart
 FastLog.config(
-justDebug: true, // Only show debug logs
-isColored: true, // Enable colored output
-showTime: true, // Show timestamp in logs
-useEmoji: true, // Use emojis in logs
-logLevel: "TRACE", // Set the default log level
-messageLimit: 200, // Limit log message length
+  showLog: !kReleaseMode, // Show debug logs only in dev mode, auto-disable in production
+  isColored: true, // Enable ANSI color codes for better log readability
+  useEmoji: true, // Use emojis as visual indicators for different log levels
+  outputStyle: OutputStyle.standard, // Choose from: standard, minimal, none, colored
+  prettyJson: true, // Automatically format JSON objects with indentation
+  messageLimit: 300, // Truncate long messages to prevent console overflow
+  showTime: true, // Display timestamp for each log entry
+  showCaller: true, // Show file and line number where log was called
+
+  // Log level filtering (in order of severity)
+  logLevel: "TRACE", // Options: TRACE, DEBUG, INFO, WARN, ERROR, FATAL
+  // TRACE = most verbose (shows everything)
+  // DEBUG = development debugging
+  // INFO = general information
+  // WARN = warnings
+  // ERROR = errors
+  // FATAL = critical errors only
 );
 ```
 
@@ -70,12 +87,14 @@ import 'package:flutter_fastlog/flutter_fastlog.dart';
 void main() {
 // Configure logging
 FastLog.config(
-justDebug: true,
-isColored: true,
-showTime: true,
-useEmoji: true,
-logLevel: "DEBUG",
-messageLimit: 100,
+    showLog: !kReleaseMode,
+    isColored: true,
+    useEmoji: true,
+    prettyJson: true,
+    showTime: true,
+    showCaller: true,
+    messageLimit: 300,
+    logLevel: "DEBUG",
 );
 
 // Log messages at different levels
