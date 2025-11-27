@@ -374,17 +374,16 @@ class FastLog {
   //  Minimal format with proper parameter order
   static String _buildMinimalFormat(String level, String tag, String message) {
     final timePart = _showTime ? '[${_getCachedTimeWithMs()}] ' : '';
-    final emojiPart = _useEmoji ? '${_emojis[_getLevelIndex(level)]} ' : '';
+    final emojiPart = _useEmoji ? ' ${_emojis[_getLevelIndex(level)]} ' : '';
     final levelPart = _isColored ? '${_colors[level]}$level ' : '$level ';
     final tagPart = tag.isNotEmpty ? '$tag ' : '';
-    final callerPart = _showCaller ? '${_getCallerInfo()} | ' : '';
+    final callerPart = _showCaller ? _getCallerInfo() : '';
     final resetPart = _isColored ? _colors["RESET"]! : '';
 
-    return '$timePart$emojiPart$levelPart$tagPart$callerPart• $message$resetPart';
+    return '$timePart$callerPart$emojiPart$levelPart$tagPart• $message$resetPart';
   }
 
   static String _buildColoredFormat(String level, String tag, String message) {
-    final formattedTag = tag.isNotEmpty ? tag : level;
     final levelColor = _isColored ? _colors[level]! : "";
     final resetColor = _isColored ? _colors["RESET"]! : "";
     final valueMessage =
@@ -399,9 +398,10 @@ class FastLog {
         ? '$levelColor${level.toUpperCase()}$resetColor '
         : '${level.toUpperCase()} ';
     final emojiText = _useEmoji ? '$emoji ' : '';
-    final tagText = '${_colors["INFO"]!}$formattedTag$resetColor ';
+    final tagText = tag.isNotEmpty ? '${_colors[level]!}$tag$resetColor ' : '';
+
     final caller = _showCaller ? '• ${_getCallerInfo()} ' : '';
-    const separator = ' ';
+    var separator = tag.isNotEmpty ? ' ' : '';
 
     if (_prettyJson && _isFormattedJson(valueMessage)) {
       final lines = valueMessage.split('\n');

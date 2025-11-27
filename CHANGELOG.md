@@ -1,3 +1,7 @@
+## 0.2.0
+
+- Minor update of `flutter_fastlog`, Fixed color system
+
 ## 0.1.77
 
 - Minor update of `flutter_fastlog`, Add OutputStyle and showCaller

@@ -22,7 +22,7 @@ To use `flutter_fastlog` in your Dart or Flutter project, add the following to y
 
 ```yaml
 dependencies:
-flutter_fastlog: ^0.1.7
+flutter_fastlog: ^0.2.0
 ```
 
 Then run:

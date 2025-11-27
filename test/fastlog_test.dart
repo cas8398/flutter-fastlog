@@ -135,7 +135,7 @@ void main() {
       FastLog.error("Full method");
       FastLog.e("Shorthand method");
       FastLog.fatal("Full method");
-      FastLog.f("Shorthand method");
+      FastLog.f("Shorthand method", tag: 'TEST');
     }, returnsNormally);
   });
 
@@ -153,7 +153,8 @@ void main() {
         returnsNormally);
     expect(
         () => FastLog.i(
-            "This is another long message that should be truncated due to message limit configuration"),
+              "This is another long message that should be truncated due to message limit configuration",
+            ),
         returnsNormally);
   });
 }
