@@ -3,11 +3,10 @@
 A super lightweight and high-performance logging package for Dart and Flutter.  
 Supports customizable log levels, colors, timestamps, tag, and emojis.
 
-![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![Pub Version](https://img.shields.io/pub/v/flutter_fastlog?color=blue&style=for-the-badge)
 ![License](https://img.shields.io/github/license/cas8398/flutter-fastlog?style=for-the-badge)
-[![Tests](https://github.com/cas8398/flutter-fastlog/actions/workflows/test.yml/badge.svg)](https://github.com/cas8398/flutter-fastlog/actions)
 [![Pub Points](https://img.shields.io/pub/points/flutter_fastlog.svg)](https://pub.dev/packages/flutter_fastlog/score)
+[![wakatime](https://wakatime.com/badge/user/70818c15-eb72-433e-9174-2ed1623e2fca/project/514f11c2-3ac7-4f2a-a1ad-a3ebc9cbd6a9.svg)](https://wakatime.com/badge/user/70818c15-eb72-433e-9174-2ed1623e2fca/project/514f11c2-3ac7-4f2a-a1ad-a3ebc9cbd6a9)
 
 ## Features
 
