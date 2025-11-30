@@ -6,7 +6,7 @@ Supports customizable log levels, colors, timestamps, tag, and emojis.
 ![Pub Version](https://img.shields.io/pub/v/flutter_fastlog?color=blue&style=for-the-badge)
 ![License](https://img.shields.io/github/license/cas8398/flutter-fastlog?style=for-the-badge)
 [![Pub Points](https://img.shields.io/pub/points/flutter_fastlog.svg)](https://pub.dev/packages/flutter_fastlog/score)
-[![wakatime](https://wakatime.com/badge/user/70818c15-eb72-433e-9174-2ed1623e2fca/project/514f11c2-3ac7-4f2a-a1ad-a3ebc9cbd6a9.svg)](https://wakatime.com/badge/user/70818c15-eb72-433e-9174-2ed1623e2fca/project/514f11c2-3ac7-4f2a-a1ad-a3ebc9cbd6a9)
+[![wakatime](https://wakatime.com/badge/github/cas8398/flutter-fastlog.svg)](https://wakatime.com/badge/github/cas8398/flutter-fastlog)
 
 ## Features
 
